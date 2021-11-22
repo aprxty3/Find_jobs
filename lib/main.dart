@@ -1,3 +1,4 @@
+import 'package:find_job/pages/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -8,7 +9,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        // '/': (context) => OnboardingPage(),
+        '/': (context) => Splash(),
+        // '/onboarding': (context) => OnboardingPage(),
         // '/sign-in': (context) => SignInPage(),
         // '/sign-un': (context) => SignUnPage(),
         // '/home': (context) => HomePage(),
