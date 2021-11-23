@@ -43,21 +43,25 @@ class GetStartedPage extends StatelessWidget {
                 ),
                 Center(
                   child: Padding(
-                    padding: EdgeInsets.only(top: 450.0),
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(66),
+                    padding: EdgeInsets.only(top: 380.0),
+                    child: Container(
+                      width: 200,
+                      height: 45,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(66),
+                          ),
                         ),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        'Get Started',
-                        style: GoogleFonts.poppins(
-                            color: Color(0xff4141A4),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500),
+                        onPressed: () {},
+                        child: Text(
+                          'Get Started',
+                          style: GoogleFonts.poppins(
+                              color: Color(0xff4141A4),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
                     ),
                   ),
