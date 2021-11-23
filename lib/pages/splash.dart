@@ -1,51 +1,65 @@
+import 'package:find_job/pages/startedPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
-import 'onboardingPage.dart';
 
 class Splash extends StatefulWidget {
   @override
-  _SplashState createState() => _SplashState();
+  State<StatefulWidget> createState() {
+    return StartState();
+  }
 }
 
-class _SplashState extends State<Splash> {
-  @override
+class StartState extends State<Splash> {
   void initState() {
     super.initState();
-
-    Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => OnboardingPage()));
-    });
+    startTimer();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff4141A4),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              child: Image.asset(
-                'assets/logo.png',
-                width: 59,
-                height: 76,
-              ),
-            ),
-            SizedBox(height: 50),
-            Text(
-              'FIND JOBS',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontSize: 32,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+    // TODO: implement build
+    throw UnimplementedError();
   }
+}
+
+startTimer() async {
+  var duration = Duration(seconds: 5);
+  return Timer(duration, route);
+}
+
+route() {
+  BuildContext context;
+  Navigator.pushReplacement(
+      context, MaterialPageRoute(builder: (context) => GetStartedPage()));
+}
+
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    backgroundColor: Color(0xff4141A4),
+    body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            child: Image.asset(
+              'assets/logo.png',
+              width: 59,
+              height: 76,
+            ),
+          ),
+          SizedBox(height: 50),
+          Text(
+            'FIND JOBS',
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+              fontSize: 32,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
