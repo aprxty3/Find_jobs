@@ -40,3 +40,10 @@ FontWeight light = FontWeight.w300;
 FontWeight medium = FontWeight.w500;
 FontWeight semiBold = FontWeight.w700;
 FontWeight bold = FontWeight.bold;
+
+//Sign In Text Style
+TextStyle tittleStyle = GoogleFonts.poppins(
+  color: Color(0xffB3B5C4),
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+);
