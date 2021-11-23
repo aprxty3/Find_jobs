@@ -1,3 +1,4 @@
+import 'package:find_job/pages/signIn.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -73,7 +74,14 @@ class GetStartedPage extends StatelessWidget {
                       width: 200,
                       height: 45,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignIn(),
+                            ),
+                          );
+                        },
                         style: OutlinedButton.styleFrom(
                           side: BorderSide(color: Colors.white),
                           shape: RoundedRectangleBorder(
