@@ -66,6 +66,32 @@ class GetStartedPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 16),
+                    child: Container(
+                      width: 200,
+                      height: 45,
+                      child: TextButton(
+                        onPressed: () {},
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: Colors.white),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(66),
+                          ),
+                        ),
+                        child: Text(
+                          'Sign In',
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
