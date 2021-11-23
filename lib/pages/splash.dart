@@ -13,7 +13,7 @@ class _SplashPageState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 5), () {
       Navigator.pushNamedAndRemoveUntil(
         context,
         '/onboarding',
