@@ -3,23 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
-class Splash extends StatefulWidget {
+class SplashScreen extends StatefulWidget   {
   @override
   State<StatefulWidget> createState() {
     return StartState();
   }
 }
 
-class StartState extends State<Splash> {
+class StartState extends State<SplashScreen> {
   void initState() {
     super.initState();
     startTimer();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
   }
 }
 
