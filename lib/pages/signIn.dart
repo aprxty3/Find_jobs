@@ -8,12 +8,21 @@ class SignIn extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Padding(
-          padding: EdgeInsets.only(top: 30, left: 24),
+          padding: const EdgeInsets.only(
+            top: 30,
+            left: 24,
+            right: 123,
+          ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Sign',
+                'Sign In',
                 style: tittleStyle,
+              ),
+              Text(
+                'Begin New Journey',
+                style: subtittleStyle,
               ),
             ],
           ),

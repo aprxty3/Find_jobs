@@ -47,3 +47,9 @@ TextStyle tittleStyle = GoogleFonts.poppins(
   fontSize: 16,
   fontWeight: FontWeight.w400,
 );
+
+TextStyle subtittleStyle = GoogleFonts.poppins(
+  color: Colors.black,
+  fontSize: 24,
+  fontWeight: FontWeight.w600,
+);
