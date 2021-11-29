@@ -9,9 +9,9 @@ class SignIn extends StatelessWidget {
       home: Scaffold(
         body: Padding(
           padding: const EdgeInsets.only(
-            top: 30,
+            top: 40,
             left: 24,
-            right: 123,
+            right: 24,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,8 +21,22 @@ class SignIn extends StatelessWidget {
                 style: tittleStyle,
               ),
               Text(
-                'Begin New Journey',
+                'Build Your Career',
                 style: subtittleStyle,
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Center(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'assets/image_sign_in.png',
+                      width: 261,
+                      height: 240,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
