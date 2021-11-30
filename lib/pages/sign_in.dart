@@ -1,3 +1,4 @@
+import 'package:find_job/pages/sign_up.dart';
 import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
@@ -143,9 +144,19 @@ class _SignInState extends State<SignIn> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 30),
                 child: Center(
-                  child: Text(
-                    'Created New Account',
-                    style: button2Style,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpPage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Created New Account',
+                      style: button2Style,
+                    ),
                   ),
                 ),
               ),
