@@ -1,4 +1,5 @@
 import 'package:find_job/pages/sign_in.dart';
+import 'package:find_job/pages/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,7 +56,14 @@ class GetStartedPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(66),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignUpPage(),
+                            ),
+                          );
+                        },
                         child: Text(
                           'Get Started',
                           style: GoogleFonts.poppins(
