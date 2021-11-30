@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => SplashScreen(),
         '/onboarding': (context) => GetStartedPage(),
         '/sign-in': (context) => SignIn(),
-        // '/sign-un': (context) => SignUnPage(),
+        // '/sign-up': (context) => SignUnPage(),
         // '/home': (context) => HomePage(),
       },
     );
