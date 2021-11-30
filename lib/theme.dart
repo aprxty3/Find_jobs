@@ -53,3 +53,15 @@ TextStyle subtittleStyle = GoogleFonts.poppins(
   fontSize: 24,
   fontWeight: FontWeight.w600,
 );
+
+TextStyle buttonStyle = GoogleFonts.poppins(
+  color: Colors.white,
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
+);
+
+TextStyle button2Style = GoogleFonts.poppins(
+  color: Color(0xffB3B5C4),
+  fontSize: 14,
+  fontWeight: FontWeight.w300,
+);

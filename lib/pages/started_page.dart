@@ -1,4 +1,4 @@
-import 'package:find_job/pages/signIn.dart';
+import 'package:find_job/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

@@ -9,7 +9,7 @@ class SignIn extends StatelessWidget {
       home: Scaffold(
         body: Padding(
           padding: const EdgeInsets.only(
-            top: 40,
+            top: 20,
             left: 24,
             right: 24,
           ),
@@ -38,7 +38,7 @@ class SignIn extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -89,6 +89,32 @@ class SignIn extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 40),
+              Container(
+                width: 400,
+                height: 50,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Color(0xff4141A4),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(66),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    'Sign In',
+                    style: buttonStyle,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 30),
+                child: Center(
+                  child: Text(
+                    'Created New Account',
+                    style: button2Style,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
