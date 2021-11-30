@@ -10,10 +10,53 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool isEmailValid = true;
+  bool isUploaded = false;
 
   TextEditingController emailController = TextEditingController(text: '');
   @override
   Widget build(BuildContext context) {
+    Widget uploadImage() {
+      return Center(
+        child: InkWell(
+          onTap: () {
+            setState(() {
+              isUploaded = !isUploaded;
+            });
+          },
+          child: Column(
+            children: [
+              Image.asset(
+                'assets/icon_upload.png',
+                width: 120,
+                height: 120,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    Widget showedImage() {
+      return Center(
+        child: InkWell(
+          onTap: () {
+            setState(() {
+              isUploaded = !isUploaded;
+            });
+          },
+          child: Column(
+            children: [
+              Image.asset(
+                'assets/image_profile.png',
+                width: 120,
+                height: 120,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -41,11 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 Center(
                   child: Column(
                     children: [
-                      Image.asset(
-                        'assets/icon_upload.png',
-                        width: 120,
-                        height: 120,
-                      ),
+                      isUploaded ? showedImage() : uploadImage(),
                       SizedBox(height: 20),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
