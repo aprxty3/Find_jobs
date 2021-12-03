@@ -79,3 +79,15 @@ TextStyle jobStyle2 = GoogleFonts.poppins(
   fontWeight: FontWeight.w400,
   color: Color(0xffB3B5C4),
 );
+
+TextStyle detailJob = GoogleFonts.poppins(
+  fontSize: 24,
+  fontWeight: FontWeight.w600,
+  color: Colors.white,
+);
+
+TextStyle detailJob2 = GoogleFonts.poppins(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+  color: Colors.white,
+);
