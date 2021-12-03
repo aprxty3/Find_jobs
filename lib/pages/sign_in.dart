@@ -3,6 +3,8 @@ import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 
+import 'homePage.dart';
+
 class SignIn extends StatefulWidget {
   @override
   State<SignIn> createState() => _SignInState();
@@ -135,7 +137,14 @@ class _SignInState extends State<SignIn> {
                         borderRadius: BorderRadius.circular(66),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => homePage(),
+                          ),
+                        );
+                    },
                     child: Text(
                       'Sign In',
                       style: buttonStyle,
