@@ -1,5 +1,6 @@
 import 'package:find_job/theme.dart';
 import 'package:find_job/widget/job_cart.dart';
+import 'package:find_job/widget/just_posted.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -106,25 +107,21 @@ class homePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 24,
+              SizedBox(height: 24),
+              justPosted(
+                imageURL: 'assets/icon_google.png',
+                jobText: 'Front-End Developer',
+                comText: 'Google',
               ),
-              Row(
-                children: [
-                  Image.asset(
-                    'assets/icon_google.png',
-                    width: 44,
-                    height: 45,
-                  ),
-                  SizedBox(width: 27),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Front-End Developer', style: jobStyle),
-                      Text('Google', style: jobStyle2),
-                    ],
-                  )
-                ],
+              justPosted(
+                imageURL: 'assets/icon_facebook.png',
+                jobText: 'Cloud Engineer',
+                comText: 'Facebook',
+              ),
+              justPosted(
+                imageURL: 'assets/icon_instagram.png',
+                jobText: 'Data Scientist',
+                comText: 'Instagram',
               ),
             ],
           ),
@@ -133,13 +130,15 @@ class homePage extends StatelessWidget {
     }
 
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          header(),
-          SizedBox(height: 30),
-          body(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            header(),
+            SizedBox(height: 30),
+            body(),
+          ],
+        ),
       ),
     );
   }
