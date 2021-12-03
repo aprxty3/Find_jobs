@@ -130,15 +130,50 @@ class homePage extends StatelessWidget {
     }
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            header(),
-            SizedBox(height: 30),
-            body(),
+      bottomNavigationBar: Container(
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          showSelectedLabels: true,
+          unselectedItemColor: Color(0xffB3B5C4),
+          selectedItemColor: Colors.black,
+          elevation: 0,
+          currentIndex: 0,
+          iconSize: 24,
+          items: [
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage('assets/navbar1.png'),
+              ),
+              label: 'home',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage('assets/navbar2.png'),
+              ),
+              label: 'notification',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage('assets/navbar3.png'),
+              ),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage('assets/navbar4.png'),
+              ),
+              label: 'profile',
+            ),
           ],
         ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          header(),
+          SizedBox(height: 30),
+          body(),
+        ],
       ),
     );
   }
