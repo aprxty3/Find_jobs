@@ -65,3 +65,17 @@ TextStyle button2Style = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: FontWeight.w300,
 );
+
+TextStyle jobStyle = GoogleFonts.poppins(
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
+  color: Color(
+    0xff272C2F,
+  ),
+);
+
+TextStyle jobStyle2 = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  color: Color(0xffB3B5C4),
+);
