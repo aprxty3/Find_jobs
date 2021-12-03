@@ -66,6 +66,8 @@ TextStyle button2Style = GoogleFonts.poppins(
   fontWeight: FontWeight.w300,
 );
 
+//Job Cart Page
+
 TextStyle jobStyle = GoogleFonts.poppins(
   fontSize: 16,
   fontWeight: FontWeight.w500,
@@ -80,6 +82,8 @@ TextStyle jobStyle2 = GoogleFonts.poppins(
   color: Color(0xffB3B5C4),
 );
 
+//DetailJob PAGE
+
 TextStyle detailJob = GoogleFonts.poppins(
   fontSize: 24,
   fontWeight: FontWeight.w600,
@@ -90,4 +94,24 @@ TextStyle detailJob2 = GoogleFonts.poppins(
   fontSize: 16,
   fontWeight: FontWeight.w400,
   color: Colors.white,
+);
+
+//APPLY PAGE
+
+TextStyle applyTheme1 = GoogleFonts.poppins(
+  fontSize: 20,
+  fontWeight: FontWeight.w600,
+  color: Color(0xff272C2F),
+);
+
+TextStyle applyTheme2 = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  color: Color(0xffB3B5C4),
+);
+
+TextStyle applyTheme3 = GoogleFonts.poppins(
+  color: Color(0xff272C2F),
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
 );
