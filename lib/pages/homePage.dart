@@ -1,4 +1,5 @@
 import 'package:find_job/theme.dart';
+import 'package:find_job/widget/job_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -58,27 +59,35 @@ class homePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
-              Container(
-                width: 150,
-                height: 200,
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 16, bottom: 16),
-                    child: Text(
-                      'Website Developer',
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    jobCart(
+                      text: 'Website Developer',
+                      imageUrl: 'assets/image_category1.png',
                     ),
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/image_category1.png'),
-                  ),
+                    SizedBox(width: 16),
+                    jobCart(
+                      text: 'Mobile Developer',
+                      imageUrl: 'assets/image_category2.png',
+                    ),
+                    SizedBox(width: 16),
+                    jobCart(
+                      text: 'App Designer',
+                      imageUrl: 'assets/image_category3.png',
+                    ),
+                    SizedBox(width: 16),
+                    jobCart(
+                      text: 'Content Writer',
+                      imageUrl: 'assets/image_category4.png',
+                    ),
+                    SizedBox(width: 16),
+                    jobCart(
+                      text: 'Video Grapher',
+                      imageUrl: 'assets/image_category5.png',
+                    ),
+                  ],
                 ),
               ),
             ],
