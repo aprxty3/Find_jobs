@@ -115,3 +115,9 @@ TextStyle applyTheme3 = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: FontWeight.w500,
 );
+
+TextStyle applyTheme4 = GoogleFonts.poppins(
+  color: Color(0xff272C2F),
+  fontSize: 14,
+  fontWeight: FontWeight.w300,
+);
