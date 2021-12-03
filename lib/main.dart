@@ -1,3 +1,4 @@
+import 'package:find_job/pages/homePage.dart';
 import 'package:find_job/pages/sign_in.dart';
 import 'package:find_job/pages/sign_up.dart';
 import 'package:find_job/pages/splash.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         '/onboarding': (context) => GetStartedPage(),
         '/sign-in': (context) => SignIn(),
         '/sign-up': (context) => SignUpPage(),
-        // '/home': (context) => HomePage(),
+        '/home': (context) => homePage(),
       },
     );
   }
