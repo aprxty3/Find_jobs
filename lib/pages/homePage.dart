@@ -61,34 +61,70 @@ class homePage extends StatelessWidget {
               SizedBox(height: 16),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    jobCart(
-                      text: 'Website Developer',
-                      imageUrl: 'assets/image_category1.png',
-                    ),
-                    SizedBox(width: 16),
-                    jobCart(
-                      text: 'Mobile Developer',
-                      imageUrl: 'assets/image_category2.png',
-                    ),
-                    SizedBox(width: 16),
-                    jobCart(
-                      text: 'App Designer',
-                      imageUrl: 'assets/image_category3.png',
-                    ),
-                    SizedBox(width: 16),
-                    jobCart(
-                      text: 'Content Writer',
-                      imageUrl: 'assets/image_category4.png',
-                    ),
-                    SizedBox(width: 16),
-                    jobCart(
-                      text: 'Video Grapher',
-                      imageUrl: 'assets/image_category5.png',
-                    ),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.only(left: 2),
+                  child: Row(
+                    children: [
+                      jobCart(
+                        text: 'Website Developer',
+                        imageUrl: 'assets/image_category1.png',
+                      ),
+                      SizedBox(width: 16),
+                      jobCart(
+                        text: 'Mobile Developer',
+                        imageUrl: 'assets/image_category2.png',
+                      ),
+                      SizedBox(width: 16),
+                      jobCart(
+                        text: 'App Designer',
+                        imageUrl: 'assets/image_category3.png',
+                      ),
+                      SizedBox(width: 16),
+                      jobCart(
+                        text: 'Content Writer',
+                        imageUrl: 'assets/image_category4.png',
+                      ),
+                      SizedBox(width: 16),
+                      jobCart(
+                        text: 'Video Grapher',
+                        imageUrl: 'assets/image_category5.png',
+                      ),
+                      SizedBox(width: 24),
+                    ],
+                  ),
                 ),
+              ),
+              SizedBox(height: 30),
+              Padding(
+                padding: EdgeInsets.only(left: 0),
+                child: Text(
+                  'Just Posted',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    color: Color(0xff272C2F),
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Row(
+                children: [
+                  Image.asset(
+                    'assets/icon_google.png',
+                    width: 44,
+                    height: 45,
+                  ),
+                  SizedBox(width: 27),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Front-End Developer', style: jobStyle),
+                      Text('Google', style: jobStyle2),
+                    ],
+                  )
+                ],
               ),
             ],
           ),
