@@ -168,7 +168,37 @@ class applyPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30)
+              SizedBox(height: 30),
+              Container(
+                width: 200,
+                height: 45,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Color(0xff4141A4),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(66),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    'Apply for Job',
+                    style: buttonStyle,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 20,
+                  bottom: 30,
+                ),
+                child: InkWell(
+                  onTap: () {},
+                  child: Text(
+                    'Message Recruiter',
+                    style: button2Style,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
