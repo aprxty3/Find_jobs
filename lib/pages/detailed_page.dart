@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class detailePage extends StatelessWidget {
+  final String imageUrl;
+  final String jobText;
+
+  detailePage({this.imageUrl, this.jobText});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,8 +19,19 @@ class detailePage extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Image.asset(
-                    'assets/bg.png',
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
+                    child: Container(
+                      height: 270,
+                      width: double.infinity,
+                      child: Image.asset(
+                        imageUrl,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 180, left: 24),
@@ -23,7 +39,7 @@ class detailePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Website Developer',
+                          jobText,
                           style: detailJob,
                         ),
                         Text(

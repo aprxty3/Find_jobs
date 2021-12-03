@@ -15,7 +15,10 @@ class jobCart extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => detailePage(),
+            builder: (context) => detailePage(
+              jobText: text,
+              imageUrl: imageUrl,
+            ),
           ),
         );
       },
