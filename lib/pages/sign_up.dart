@@ -3,6 +3,8 @@ import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 
+import 'homePage.dart';
+
 class SignUpPage extends StatefulWidget {
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -211,7 +213,14 @@ class _SignUpPageState extends State<SignUpPage> {
                               borderRadius: BorderRadius.circular(66),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => homePage(),
+                          ),
+                        );
+                          },
                           child: Text(
                             'Sign Up',
                             style: buttonStyle,
