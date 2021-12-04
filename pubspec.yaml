@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^2.1.0
+  http: ^0.13.4
   notifications: ^2.0.1
 
 dev_dependencies:
