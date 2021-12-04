@@ -1,21 +1,95 @@
 import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class applyPage extends StatelessWidget {
+class applyPage extends StatefulWidget {
+  @override
+  State<applyPage> createState() => _applyPageState();
+}
+
+class _applyPageState extends State<applyPage> {
+  bool isAplied = false;
   @override
   Widget build(BuildContext context) {
+    Widget applyButton() {
+      return Container(
+        width: 200,
+        height: 45,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: Color(0xff4141A4),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(66),
+            ),
+          ),
+          onPressed: () {
+            setState(() {
+              isAplied = !isAplied;
+            });
+          },
+          child: Text(
+            'Apply for Job',
+            style: buttonStyle,
+          ),
+        ),
+      );
+    }
+
+    Widget cancelapplyButton() {
+      return Container(
+        width: 200,
+        height: 45,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: Color(0xffFD4F56),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(66),
+            ),
+          ),
+          onPressed: () {
+            setState(() {
+              isAplied = !isAplied;
+            });
+          },
+          child: Text(
+            'Cancel Apply',
+            style: buttonStyle,
+          ),
+        ),
+      );
+    }
+
+    Widget cancelapplyfly() {
+      return Container(
+        margin: EdgeInsets.only(bottom: 30),
+        padding: EdgeInsets.fromLTRB(25, 10, 25, 10),
+        decoration: BoxDecoration(
+          color: Color(0xffECEDF1),
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Text(
+          'You have applied this job and the \nrecruiter will contact you',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.poppins(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            color: Color(0xffA2A6B4),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 80),
-                child: Image.asset(
-                  'assets/icon_google.png',
-                  width: 60,
-                  height: 60,
-                ),
+              SizedBox(height: 80),
+              isAplied ? cancelapplyfly() : SizedBox(),
+              Image.asset(
+                'assets/icon_google.png',
+                width: 60,
+                height: 60,
               ),
               SizedBox(height: 20),
               Text(
@@ -169,23 +243,7 @@ class applyPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              Container(
-                width: 200,
-                height: 45,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Color(0xff4141A4),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(66),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    'Apply for Job',
-                    style: buttonStyle,
-                  ),
-                ),
-              ),
+              isAplied ? cancelapplyButton() : applyButton(),
               Padding(
                 padding: EdgeInsets.only(
                   top: 20,
