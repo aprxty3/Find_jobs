@@ -1,256 +1,331 @@
 import 'package:find_job/pages/sign_in.dart';
+import 'package:find_job/provider/auth_provider.dart';
+import 'package:find_job/provider/user_provider.dart';
 import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:provider/provider.dart';
 
 import 'homePage.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  bool isEmailValid = true;
-  bool isUploaded = false;
-
+  TextEditingController nameController = TextEditingController(text: '');
   TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+  TextEditingController motivationController = TextEditingController(text: '');
+
   @override
+  var authProvider = Provider.of<AuthProvider>(context);
+  var userProvider = Provider.of<UserProvider>(context);
   Widget build(BuildContext context) {
-    Widget uploadImage() {
-      return Center(
-        child: InkWell(
-          onTap: () {
-            setState(() {
-              isUploaded = !isUploaded;
-            });
-          },
-          child: Column(
-            children: [
-              Image.asset(
-                'assets/icon_upload.png',
-                width: 120,
-                height: 120,
+    Widget header() {
+      return Container(
+        margin: EdgeInsets.only(top: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Sign Up',
+              style: greyTextStyle.copyWith(
+                fontSize: 16,
               ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    Widget showedImage() {
-      return Center(
-        child: InkWell(
-          onTap: () {
-            setState(() {
-              isUploaded = !isUploaded;
-            });
-          },
-          child: Column(
-            children: [
-              Image.asset(
-                'assets/image_profile.png',
-                width: 120,
-                height: 120,
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 20,
-              left: 24,
-              right: 24,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  ' Sign Up ',
-                  style: tittleStyle,
+            SizedBox(
+              height: 2,
+            ),
+            Text(
+              'Begin New Journey',
+              style: blackTextStyle.copyWith(
+                fontSize: 24,
+                fontWeight: semiBold,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget inputImage() {
+      return Center(
+        child: Container(
+          width: 120,
+          height: 120,
+          margin: EdgeInsets.only(top: 50),
+          padding: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: primaryColor,
+            ),
+          ),
+          child: Image.asset(
+            'assets/image_profile.png',
+          ),
+        ),
+      );
+    }
+
+    Widget inputName() {
+      return Container(
+        margin: EdgeInsets.only(top: 50),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Full Name',
+              style: greyTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            TextFormField(
+              controller: nameController,
+              cursorColor: primaryColor,
+              onChanged: (value) {
+                setState(() {});
+              },
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(left: 28, bottom: 20, top: 20),
+                fillColor: Color(0xffF1F0F5),
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide.none,
                 ),
-                Text(
-                  'Begin New Journey',
-                  style: subtittleStyle,
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Center(
-                  child: Column(
-                    children: [
-                      isUploaded ? showedImage() : uploadImage(),
-                      SizedBox(height: 20),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Fullname',
-                            style: tittleStyle,
-                          ),
-                          SizedBox(height: 8),
-                          TextFormField(
-                            decoration: InputDecoration(
-                              fillColor: Color(0xffF1F0F5),
-                              filled: true,
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                                borderSide: BorderSide.none,
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                                borderSide:
-                                    BorderSide(color: Color(0xff4141A4)),
-                              ),
-                              hintText: '',
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Text(
-                            'Email Address',
-                            style: tittleStyle,
-                          ),
-                          SizedBox(height: 8),
-                          TextFormField(
-                            controller: emailController,
-                            onChanged: (value) {
-                              print(value);
-                              bool isValid = EmailValidator.validate(value);
-                              print(isValid);
-                              if (isValid) {
-                                setState(() {
-                                  isEmailValid = true;
-                                });
-                              } else {
-                                setState(() {
-                                  isEmailValid = false;
-                                });
-                              }
-                            },
-                            decoration: InputDecoration(
-                              fillColor: Color(0xffF1F0F5),
-                              filled: true,
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                                borderSide: BorderSide.none,
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                                borderSide: BorderSide(
-                                    color: isEmailValid
-                                        ? Color(0xff4141A4)
-                                        : Color(0xffFD4F56)),
-                              ),
-                              hintText: '',
-                            ),
-                            style: TextStyle(
-                                color: isEmailValid
-                                    ? Color(0xff4141A4)
-                                    : Color(0xffFD4F56)),
-                          ),
-                          SizedBox(height: 20),
-                          Text(
-                            'Password',
-                            style: tittleStyle,
-                          ),
-                          SizedBox(height: 8),
-                          TextFormField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              fillColor: Color(0xffF1F0F5),
-                              filled: true,
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                                borderSide: BorderSide.none,
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                                borderSide:
-                                    BorderSide(color: Color(0xff4141A4)),
-                              ),
-                              hintText: '',
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Text(
-                            'Goal',
-                            style: tittleStyle,
-                          ),
-                          SizedBox(height: 8),
-                          TextFormField(
-                            decoration: InputDecoration(
-                              fillColor: Color(0xffF1F0F5),
-                              filled: true,
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                                borderSide: BorderSide.none,
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                                borderSide:
-                                    BorderSide(color: Color(0xff4141A4)),
-                              ),
-                              hintText: '',
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 30),
-                      Container(
-                        width: 400,
-                        height: 40,
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                            backgroundColor: Color(0xff4141A4),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(66),
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => homePage(),
-                          ),
-                        );
-                          },
-                          child: Text(
-                            'Sign Up',
-                            style: buttonStyle,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20, bottom: 30),
-                        child: Center(
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SignIn(),
-                                ),
-                              );
-                            },
-                            child: Text(
-                              'Back To Sign In',
-                              style: button2Style,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(
+                    color: primaryColor,
                   ),
                 ),
-              ],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                hintText: '',
+              ),
+              style: purpleTextStyle,
             ),
+          ],
+        ),
+      );
+    }
+
+    Widget inputEmail() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Email Address',
+              style: greyTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            TextFormField(
+              controller: emailController,
+              cursorColor: primaryColor,
+              onChanged: (value) {
+                setState(() {});
+              },
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(left: 28, bottom: 20, top: 20),
+                fillColor: Color(0xffF1F0F5),
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide.none,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(
+                    color: EmailValidator.validate(emailController.text)
+                        ? primaryColor
+                        : Colors.red,
+                  ),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                hintText: '',
+              ),
+              style: EmailValidator.validate(emailController.text)
+                  ? purpleTextStyle
+                  : redTextStyle,
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget inputPassword() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Password',
+              style: greyTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            TextFormField(
+              controller: passwordController,
+              cursorColor: primaryColor,
+              obscureText: true,
+              onChanged: (value) {
+                setState(() {});
+              },
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(left: 28, bottom: 20, top: 20),
+                fillColor: Color(0xffF1F0F5),
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide.none,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(
+                    color: primaryColor,
+                  ),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                hintText: '',
+              ),
+              style: purpleTextStyle,
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget inputGoal() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Your Goal',
+              style: greyTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            TextFormField(
+              controller: motivationController,
+              cursorColor: primaryColor,
+              onChanged: (value) {
+                setState(() {});
+              },
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(left: 28, bottom: 20, top: 20),
+                fillColor: Color(0xffF1F0F5),
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide.none,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(
+                    color: primaryColor,
+                  ),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                hintText: '',
+              ),
+              style: purpleTextStyle,
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget signUpButton() {
+      return Container(
+        margin: EdgeInsets.only(top: 40),
+        height: 45,
+        width: double.infinity,
+        child: TextButton(
+          onPressed: () {
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/home', (route) => false);
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(66),
+            ),
+          ),
+          child: Text(
+            'Sign Up',
+            style: whiteTextStyle.copyWith(
+              fontWeight: medium,
+            ),
+          ),
+        ),
+      );
+    }
+
+    Widget signInButton() {
+      return Container(
+        margin: EdgeInsets.only(top: 20, bottom: 20),
+        child: Center(
+          child: TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/sign-in');
+            },
+            child: Text(
+              'Back to Sign In',
+              style: greyTextStyle.copyWith(
+                fontWeight: light,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(
+            horizontal: defaultMargin,
+          ),
+          child: ListView(
+            children: [
+              header(),
+              inputImage(),
+              inputName(),
+              inputEmail(),
+              inputPassword(),
+              inputGoal(),
+              signUpButton(),
+              signInButton(),
+            ],
           ),
         ),
       ),
