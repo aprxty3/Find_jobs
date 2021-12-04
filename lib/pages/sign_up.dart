@@ -24,6 +24,16 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     var authProvider = Provider.of<AuthProvider>(context);
     var userProvider = Provider.of<UserProvider>(context);
+
+    void showError(String message) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: redColor,
+          content: Text(message),
+        ),
+      );
+    }
+
     Widget header() {
       return Container(
         margin: EdgeInsets.only(top: 30),
@@ -278,8 +288,13 @@ class _SignUpPageState extends State<SignUpPage> {
               goalController.text,
             );
 
-            Navigator.pushNamedAndRemoveUntil(
-                context, '/home', (route) => false);
+            if (user == null) {
+              showError('email sudah terdaftar');
+            } else {
+              userProvider.user = user;
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/home', (route) => false);
+            }
           },
           style: TextButton.styleFrom(
             backgroundColor: primaryColor,
