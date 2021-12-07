@@ -39,4 +39,34 @@ class AuthProvider with ChangeNotifier {
       return null;
     }
   }
+
+  Future<userModel> login(
+    String email,
+    String password,
+  ) async {
+    try {
+      var body = {
+        'email': email,
+        'password': password,
+      };
+      var response = await http.post(
+        Uri.parse('https://bwa-jobs.herokuapp.com/login'),
+        body: body,
+      );
+
+      print(response.statusCode);
+      print(response.body);
+
+      if (response.statusCode == 200) {
+        return userModel.fromJson(
+          jsonDecode(response.body),
+        );
+      } else {
+        return null;
+      }
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
 }
