@@ -4,6 +4,7 @@ import 'package:find_job/pages/sign_up.dart';
 import 'package:find_job/pages/splash.dart';
 import 'package:find_job/pages/started_page.dart';
 import 'package:find_job/provider/auth_provider.dart';
+import 'package:find_job/provider/cate_provider.dart';
 import 'package:find_job/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<UserProvider>(
           create: (context) => UserProvider(),
+        ),
+        ChangeNotifierProvider<CateProvider>(
+          create: (context) => CateProvider(),
         ),
       ],
       child: MaterialApp(
