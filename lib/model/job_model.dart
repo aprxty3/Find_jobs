@@ -1,4 +1,4 @@
-class jobModel {
+class JobModel {
   String id;
   String name;
   String category;
@@ -11,7 +11,7 @@ class jobModel {
   int createdAt;
   int updatedAt;
 
-  jobModel({
+  JobModel({
     this.id,
     this.name,
     this.category,
@@ -25,7 +25,7 @@ class jobModel {
     this.updatedAt,
   });
 
-  jobModel.fromJson(Map<String, dynamic> json) {
+  JobModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     category = json['category'];
