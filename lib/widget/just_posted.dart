@@ -2,12 +2,12 @@ import 'package:find_job/pages/apply_page.dart';
 import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
 
-class justPosted extends StatelessWidget {
+class justPoste extends StatelessWidget {
   final String imageURL;
   final String jobText;
   final String comText;
 
-  justPosted({this.imageURL, this.jobText, this.comText});
+  justPoste({this.imageURL, this.jobText, this.comText});
   @override
   Widget build(BuildContext context) {
     return Padding(
