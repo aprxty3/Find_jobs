@@ -1,5 +1,7 @@
 import 'package:find_job/model/category_model.dart';
+import 'package:find_job/model/job_model.dart';
 import 'package:find_job/provider/cate_provider.dart';
+import 'package:find_job/provider/job_provider.dart';
 import 'package:find_job/provider/user_provider.dart';
 import 'package:find_job/theme.dart';
 import 'package:find_job/widget/job_cart.dart';
@@ -14,6 +16,7 @@ class homePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UserProvider>(context);
     var cateProvider = Provider.of<CateProvider>(context);
+    var jobProvider = Provider.of<JobProvider>(context);
 
     Widget header() {
       return SafeArea(
@@ -79,45 +82,19 @@ class homePage extends StatelessWidget {
               future: cateProvider.getCate(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
-                  return ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: snapshot.data
-                          .map(
-                            (category) => jobCart(
-                              imageUrl: category.imageUrl,
-                              name: category.name,
-                            ),
-                          )
-                          .toList()
-                      // children: [
-                      //   jobCart(
-                      //     text: 'Website Developer',
-                      //     imageUrl: 'assets/image_category1.png',
-                      //   ),
-                      //   SizedBox(width: 16),
-                      //   jobCart(
-                      //     text: 'Mobile Developer',
-                      //     imageUrl: 'assets/image_category2.png',
-                      //   ),
-                      //   SizedBox(width: 16),
-                      //   jobCart(
-                      //     text: 'App Designer',
-                      //     imageUrl: 'assets/image_category3.png',
-                      //   ),
-                      //   SizedBox(width: 16),
-                      //   jobCart(
-                      //     text: 'Content Writer',
-                      //     imageUrl: 'assets/image_category4.png',
-                      //   ),
-                      //   SizedBox(width: 16),
-                      //   jobCart(
-                      //     text: 'Video Grapher',
-                      //     imageUrl: 'assets/image_category5.png',
-                      //   ),
-                      //   SizedBox(width: 24),
-                      // ],
+                  int index = 1;
 
-                      );
+                  return ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: snapshot.data
+                        .map(
+                          (category) => jobCart(
+                            imageUrl: category.imageUrl,
+                            name: category.name,
+                          ),
+                        )
+                        .toList(),
+                  );
                 }
                 return Center(
                   child: CircularProgressIndicator(),
@@ -148,21 +125,38 @@ class homePage extends StatelessWidget {
             SizedBox(
               height: 24,
             ),
-            justPoste(
-              imageURL: 'assets/icon_google.png',
-              jobText: 'Front-End Developer',
-              comText: 'Google',
-            ),
-            justPoste(
-              imageURL: 'assets/icon_instagram.png',
-              jobText: 'UI Designer',
-              comText: 'Instagram',
-            ),
-            justPoste(
-              imageURL: 'assets/icon_facebook.png',
-              jobText: 'Data Scientist',
-              comText: 'Facebook',
-            ),
+            FutureBuilder<List<JobModel>>(
+              future: jobProvider.getJobs(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return Column(
+                      children: snapshot.data
+                          .map((job) => justPoste(
+                                imageURL: job.companyLogo,
+                                jobText: job.name,
+                                comText: job.companyName,
+                              ))
+                          .toList());
+                }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ), // justPoste(
+            //   imageURL: 'assets/icon_google.png',
+            //   jobText: 'Front-End Developer',
+            //   comText: 'Google',
+            // ),
+            // justPoste(
+            //   imageURL: 'assets/icon_instagram.png',
+            //   jobText: 'UI Designer',
+            //   comText: 'Instagram',
+            // ),
+            // justPoste(
+            //   imageURL: 'assets/icon_facebook.png',
+            //   jobText: 'Data Scientist',
+            //   comText: 'Facebook',
+            // ),
           ],
         ),
       );
