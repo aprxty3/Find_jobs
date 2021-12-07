@@ -24,7 +24,7 @@ class justPoste extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
+            Image.network(
               imageURL,
               width: 44,
               height: 45,
