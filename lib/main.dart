@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CateProvider>(
           create: (context) => CateProvider(),
         ),
-         ChangeNotifierProvider<jobProvider>(
-          create: (context) => jobProvider(),
+        ChangeNotifierProvider<JobProvider>(
+          create: (context) => JobProvider(),
         ),
       ],
       child: MaterialApp(
