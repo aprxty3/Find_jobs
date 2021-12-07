@@ -69,17 +69,17 @@ class detailePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 24),
-                      justPosted(
+                      justPoste(
                         imageURL: 'assets/icon_google.png',
                         jobText: 'Front-End Developer',
                         comText: 'Google',
                       ),
-                      justPosted(
+                      justPoste(
                         imageURL: 'assets/icon_facebook.png',
                         jobText: 'Cloud Engineer',
                         comText: 'Facebook',
                       ),
-                      justPosted(
+                      justPoste(
                         imageURL: 'assets/icon_instagram.png',
                         jobText: 'Data Scientist',
                         comText: 'Instagram',
@@ -106,17 +106,17 @@ class detailePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 24),
-                      justPosted(
+                      justPoste(
                         imageURL: 'assets/startup1.png',
                         jobText: 'Back-End Developer',
                         comText: 'Climb',
                       ),
-                      justPosted(
+                      justPoste(
                         imageURL: 'assets/startup2.png',
                         jobText: 'Site Realibility Engineer',
                         comText: 'Rocket',
                       ),
-                      justPosted(
+                      justPoste(
                         imageURL: 'assets/startup3.png',
                         jobText: 'Machine Learning',
                         comText: 'Rainbow',
