@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 
-class jobProvider with ChangeNotifier {
-  Future<List<jobModel>> getJobs() async {
+class JobProvider with ChangeNotifier {
+  Future<List<JobModel>> getJobs() async {
     try {
       var response = await http.get(
         Uri.parse(
@@ -18,11 +18,11 @@ class jobProvider with ChangeNotifier {
       print(response.body);
 
       if (response.statusCode == 200) {
-        List<jobModel> jobs = [];
+        List<JobModel> jobs = [];
         List parsedJson = jsonDecode(response.body);
 
         parsedJson.forEach((job) {
-          jobs.add(jobModel.fromJson(job));
+          jobs.add(JobModel.fromJson(job));
         });
 
         return jobs;
