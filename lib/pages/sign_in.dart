@@ -7,171 +7,207 @@ import 'homePage.dart';
 
 class SignIn extends StatefulWidget {
   @override
-  State<SignIn> createState() => _SignInState();
+  _SignInState createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
-  bool isEmailValid = true;
-
   TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 20,
-              left: 24,
-              right: 24,
+    Widget header() {
+      return Container(
+        margin: EdgeInsets.only(top: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Sign In',
+              style: greyTextStyle.copyWith(
+                fontSize: 16,
+              ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Sign In',
-                  style: tittleStyle,
-                ),
-                Text(
-                  'Build Your Career',
-                  style: subtittleStyle,
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Center(
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        'assets/image_sign_in.png',
-                        width: 261,
-                        height: 240,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Email Address',
-                      style: tittleStyle,
-                    ),
-                    SizedBox(height: 8),
-                    TextFormField(
-                      controller: emailController,
-                      onChanged: (value) {
-                        print(value);
-                        bool isValid = EmailValidator.validate(value);
-                        print(isValid);
-                        if (isValid) {
-                          setState(() {
-                            isEmailValid = true;
-                          });
-                        } else {
-                          setState(() {
-                            isEmailValid = false;
-                          });
-                        }
-                      },
-                      decoration: InputDecoration(
-                        fillColor: Color(0xffF1F0F5),
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
-                          borderSide: BorderSide.none,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
-                          borderSide: BorderSide(
-                              color: isEmailValid
-                                  ? Color(0xff4141A4)
-                                  : Color(0xffFD4F56)),
-                        ),
-                        hintText: '',
-                      ),
-                      style: TextStyle(
-                          color: isEmailValid
-                              ? Color(0xff4141A4)
-                              : Color(0xffFD4F56)),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Password',
-                      style: tittleStyle,
-                    ),
-                    SizedBox(height: 8),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        fillColor: Color(0xffF1F0F5),
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
-                          borderSide: BorderSide.none,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
-                          borderSide: BorderSide(color: Color(0xff4141A4)),
-                        ),
-                        hintText: '',
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 40),
-                Container(
-                  width: 400,
-                  height: 50,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Color(0xff4141A4),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(66),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => homePage(),
-                          ),
-                        );
-                    },
-                    child: Text(
-                      'Sign In',
-                      style: buttonStyle,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, bottom: 30),
-                  child: Center(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SignUpPage(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Created New Account',
-                        style: button2Style,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            SizedBox(
+              height: 2,
             ),
+            Text(
+              'Build Your Career',
+              style: blackTextStyle.copyWith(
+                fontSize: 24,
+                fontWeight: semiBold,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget illustration() {
+      return Container(
+        margin: EdgeInsets.only(top: 40),
+        child: Center(
+          child: Image.asset(
+            'assets/image_sign_in.png',
+            width: 260,
+          ),
+        ),
+      );
+    }
+
+    Widget inputEmail() {
+      return Container(
+        margin: EdgeInsets.only(top: 40),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Email Address',
+              style: greyTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Container(
+              width: double.infinity,
+              height: 45,
+              padding: EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: inputFieldColor,
+              ),
+              child: Center(
+                child: TextFormField(
+                  controller: emailController,
+                  cursorColor: primaryColor,
+                  style: purpleTextStyle.copyWith(),
+                  decoration: InputDecoration.collapsed(
+                    hintText: '',
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget inputPassword() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 20,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Password',
+              style: greyTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Container(
+              width: double.infinity,
+              height: 45,
+              padding: EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: inputFieldColor,
+              ),
+              child: Center(
+                child: TextFormField(
+                  controller: passwordController,
+                  cursorColor: primaryColor,
+                  obscureText: true,
+                  style: purpleTextStyle.copyWith(),
+                  decoration: InputDecoration.collapsed(
+                    hintText: '',
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget signInButton() {
+      return Container(
+        height: 45,
+        width: double.infinity,
+        margin: EdgeInsets.only(top: 40),
+        child: TextButton(
+          onPressed: () async {
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              '/home',
+              (route) => false,
+            );
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(66),
+            ),
+          ),
+          child: Text(
+            'Sign In',
+            style: whiteTextStyle.copyWith(
+              fontWeight: medium,
+            ),
+          ),
+        ),
+      );
+    }
+
+    Widget signUpButton() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 20,
+          bottom: 20,
+        ),
+        child: Center(
+          child: TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/sign-up');
+            },
+            child: Text(
+              'Create New Account',
+              style: greyTextStyle.copyWith(
+                fontWeight: light,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(
+            horizontal: defaultMargin,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              header(),
+              illustration(),
+              inputEmail(),
+              inputPassword(),
+              signInButton(),
+              signUpButton(),
+            ],
           ),
         ),
       ),
