@@ -1,5 +1,5 @@
 import 'package:find_job/model/user_model.dart';
-import 'package:find_job/pages/sign_in.dart';
+
 import 'package:find_job/provider/auth_provider.dart';
 import 'package:find_job/provider/user_provider.dart';
 import 'package:find_job/theme.dart';
@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
 
-import 'homePage.dart';
+
 
 class SignUpPage extends StatefulWidget {
   @override
