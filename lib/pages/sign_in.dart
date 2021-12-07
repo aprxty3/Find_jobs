@@ -192,22 +192,25 @@ class _SignInState extends State<SignIn> {
     }
 
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.symmetric(
-            horizontal: defaultMargin,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              header(),
-              illustration(),
-              inputEmail(),
-              inputPassword(),
-              signInButton(),
-              signUpButton(),
-            ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            padding: EdgeInsets.symmetric(
+              horizontal: defaultMargin,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                header(),
+                illustration(),
+                inputEmail(),
+                inputPassword(),
+                signInButton(),
+                signUpButton(),
+              ],
+            ),
           ),
         ),
       ),
