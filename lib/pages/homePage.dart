@@ -1,7 +1,10 @@
+import 'package:find_job/model/category_model.dart';
+import 'package:find_job/provider/cate_provider.dart';
 import 'package:find_job/provider/user_provider.dart';
 import 'package:find_job/theme.dart';
 import 'package:find_job/widget/job_cart.dart';
 import 'package:find_job/widget/just_posted.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +13,7 @@ class homePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UserProvider>(context);
+    var cateProvider = Provider.of<CateProvider>(context);
 
     Widget header() {
       return SafeArea(
@@ -30,7 +34,7 @@ class homePage extends StatelessWidget {
                       style: tittleStyle,
                     ),
                     Text(
-                      userProvider.user.name, 
+                      userProvider.user.name,
                       style: subtittleStyle,
                     ),
                   ],
@@ -48,88 +52,129 @@ class homePage extends StatelessWidget {
       );
     }
 
-    Widget body() {
-      return Container(
-        child: Padding(
-          padding: EdgeInsets.only(left: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Hot Categories',
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  color: Color(0xff272C2F),
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(height: 16),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 2),
-                  child: Row(
-                    children: [
-                      jobCart(
-                        text: 'Website Developer',
-                        imageUrl: 'assets/image_category1.png',
-                      ),
-                      SizedBox(width: 16),
-                      jobCart(
-                        text: 'Mobile Developer',
-                        imageUrl: 'assets/image_category2.png',
-                      ),
-                      SizedBox(width: 16),
-                      jobCart(
-                        text: 'App Designer',
-                        imageUrl: 'assets/image_category3.png',
-                      ),
-                      SizedBox(width: 16),
-                      jobCart(
-                        text: 'Content Writer',
-                        imageUrl: 'assets/image_category4.png',
-                      ),
-                      SizedBox(width: 16),
-                      jobCart(
-                        text: 'Video Grapher',
-                        imageUrl: 'assets/image_category5.png',
-                      ),
-                      SizedBox(width: 24),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 30),
-              Padding(
-                padding: EdgeInsets.only(left: 0),
-                child: Text(
-                  'Just Posted',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    color: Color(0xff272C2F),
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              SizedBox(height: 24),
-              justPoste(
-                imageURL: 'assets/icon_google.png',
-                jobText: 'Front-End Developer',
-                comText: 'Google',
-              ),
-              justPoste(
-                imageURL: 'assets/icon_facebook.png',
-                jobText: 'Cloud Engineer',
-                comText: 'Facebook',
-              ),
-              justPoste(
-                imageURL: 'assets/icon_instagram.png',
-                jobText: 'Data Scientist',
-                comText: 'Instagram',
-              ),
-            ],
+    Widget hotCategories() {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 30,
           ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: defaultMargin,
+            ),
+            child: Text(
+              'Hot Categories',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          Container(
+            height: 200,
+            child: FutureBuilder<List<CateModel>>(
+              future: cateProvider.getCate(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: snapshot.data
+                          .map(
+                            (category) => jobCart(
+                              imageUrl: category.imageUrl,
+                              name: category.name,
+                            ),
+                          )
+                          .toList()
+                      // children: [
+                      //   jobCart(
+                      //     text: 'Website Developer',
+                      //     imageUrl: 'assets/image_category1.png',
+                      //   ),
+                      //   SizedBox(width: 16),
+                      //   jobCart(
+                      //     text: 'Mobile Developer',
+                      //     imageUrl: 'assets/image_category2.png',
+                      //   ),
+                      //   SizedBox(width: 16),
+                      //   jobCart(
+                      //     text: 'App Designer',
+                      //     imageUrl: 'assets/image_category3.png',
+                      //   ),
+                      //   SizedBox(width: 16),
+                      //   jobCart(
+                      //     text: 'Content Writer',
+                      //     imageUrl: 'assets/image_category4.png',
+                      //   ),
+                      //   SizedBox(width: 16),
+                      //   jobCart(
+                      //     text: 'Video Grapher',
+                      //     imageUrl: 'assets/image_category5.png',
+                      //   ),
+                      //   SizedBox(width: 24),
+                      // ],
+
+                      );
+                }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
+          ),
+        ],
+      );
+    }
+
+    Widget justPosted() {
+      return Container(
+        padding: EdgeInsets.only(
+          left: defaultMargin,
+          right: defaultMargin,
+          top: 30,
         ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Just Posted',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            justPoste(
+              imageURL: 'assets/icon_google.png',
+              jobText: 'Front-End Developer',
+              comText: 'Google',
+            ),
+            justPoste(
+              imageURL: 'assets/icon_instagram.png',
+              jobText: 'UI Designer',
+              comText: 'Instagram',
+            ),
+            justPoste(
+              imageURL: 'assets/icon_facebook.png',
+              jobText: 'Data Scientist',
+              comText: 'Facebook',
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget body() {
+      return ListView(
+        children: [
+          header(),
+          hotCategories(),
+          justPosted(),
+        ],
       );
     }
 
@@ -170,14 +215,6 @@ class homePage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          header(),
-          SizedBox(height: 30),
-          body(),
-        ],
       ),
     );
   }
