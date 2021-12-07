@@ -1,22 +1,23 @@
 import 'package:find_job/pages/detailed_page.dart';
+import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class jobCart extends StatelessWidget {
-  final String text;
+  final String name;
   final String imageUrl;
 
-  jobCart({this.imageUrl, this.text});
+  jobCart({this.imageUrl, this.name});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => detailePage(
-              jobText: text,
+              jobText: name,
               imageUrl: imageUrl,
             ),
           ),
@@ -25,23 +26,23 @@ class jobCart extends StatelessWidget {
       child: Container(
         width: 150,
         height: 200,
-        child: Align(
-          alignment: Alignment.bottomLeft,
-          child: Padding(
-            padding: EdgeInsets.only(left: 16, bottom: 16),
-            child: Text(
-              text,
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
+        margin: EdgeInsets.only(right: defaultMargin),
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+              imageUrl,
             ),
           ),
         ),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(imageUrl),
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: Text(
+            name,
+            style: whiteTextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: medium,
+            ),
           ),
         ),
       ),
