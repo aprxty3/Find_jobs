@@ -1,3 +1,5 @@
+import 'package:find_job/model/category_model.dart';
+import 'package:find_job/model/category_model.dart';
 import 'package:find_job/model/job_model.dart';
 import 'package:find_job/provider/job_provider.dart';
 import 'package:find_job/theme.dart';
@@ -7,10 +9,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class detailePage extends StatelessWidget {
-  final String name;
-  final String imageUrl;
+  final CateModel category;
 
-  detailePage({this.imageUrl, this.name});
+  detailePage({this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class detailePage extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: NetworkImage(
-              imageUrl,
+              category.imageUrl,
             ),
           ),
           borderRadius: BorderRadius.vertical(
@@ -40,7 +41,7 @@ class detailePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              name,
+              category.name,
               style: whiteTextStyle.copyWith(
                 fontSize: 24,
                 fontWeight: semiBold,
@@ -81,7 +82,7 @@ class detailePage extends StatelessWidget {
               height: 24,
             ),
             FutureBuilder<List<JobModel>>(
-              future: jobProvider.getJobsCate(name),
+              future: jobProvider.getJobsCate(category.name),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
                   return Column(
