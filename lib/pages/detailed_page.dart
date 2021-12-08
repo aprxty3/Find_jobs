@@ -1,7 +1,10 @@
+import 'package:find_job/model/job_model.dart';
+import 'package:find_job/provider/job_provider.dart';
 import 'package:find_job/theme.dart';
 import 'package:find_job/widget/just_posted.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class detailePage extends StatelessWidget {
   final String name;
@@ -11,6 +14,8 @@ class detailePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var jobProvider = Provider.of<JobProvider>(context);
+
     Widget header() {
       return Container(
         height: 270,
@@ -75,20 +80,23 @@ class detailePage extends StatelessWidget {
             SizedBox(
               height: 24,
             ),
-            justPoste(
-              imageURL: 'assets/icon_google.png',
-              jobText: 'Front-End Developer',
-              comText: 'Google',
-            ),
-            justPoste(
-              imageURL: 'assets/icon_instagram.png',
-              jobText: 'UI Designer',
-              comText: 'Instagram',
-            ),
-            justPoste(
-              imageURL: 'assets/icon_facebook.png',
-              jobText: 'Data Scientist',
-              comText: 'Facebook',
+            FutureBuilder<List<JobModel>>(
+              future: jobProvider.getJobsCate(name),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return Column(
+                      children: snapshot.data
+                          .map((job) => justPoste(
+                                imageURL: job.companyLogo,
+                                jobText: job.name,
+                                comText: job.companyName,
+                              ))
+                          .toList());
+                }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
             ),
           ],
         ),
@@ -115,20 +123,23 @@ class detailePage extends StatelessWidget {
             SizedBox(
               height: 24,
             ),
-            justPoste(
-              imageURL: 'assets/icon_google.png',
-              jobText: 'Front-End Developer',
-              comText: 'Google',
-            ),
-            justPoste(
-              imageURL: 'assets/icon_instagram.png',
-              jobText: 'UI Designer',
-              comText: 'Instagram',
-            ),
-            justPoste(
-              imageURL: 'assets/icon_facebook.png',
-              jobText: 'Data Scientist',
-              comText: 'Facebook',
+            FutureBuilder<List<JobModel>>(
+              future: jobProvider.getJobs(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return Column(
+                      children: snapshot.data
+                          .map((job) => justPoste(
+                                imageURL: job.companyLogo,
+                                jobText: job.name,
+                                comText: job.companyName,
+                              ))
+                          .toList());
+                }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
             ),
           ],
         ),
