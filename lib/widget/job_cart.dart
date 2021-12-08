@@ -17,7 +17,7 @@ class jobCart extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => detailePage(
-              jobText: name,
+              name: name,
               imageUrl: imageUrl,
             ),
           ),
