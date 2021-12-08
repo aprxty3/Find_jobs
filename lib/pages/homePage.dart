@@ -88,9 +88,7 @@ class homePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: snapshot.data
                         .map(
-                          (category) => jobCart(
-                            imageUrl: category.imageUrl,
-                            name: category.name,
+                          (category) => jobCart(category: category,
                           ),
                         )
                         .toList(),
