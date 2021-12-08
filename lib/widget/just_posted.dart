@@ -16,7 +16,7 @@ class justPoste extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => applyPage(),
+              builder: (context) => applyPage(job),
             ),
           );
         },
