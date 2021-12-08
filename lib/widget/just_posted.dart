@@ -1,13 +1,12 @@
+import 'package:find_job/model/job_model.dart';
 import 'package:find_job/pages/apply_page.dart';
 import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
 
 class justPoste extends StatelessWidget {
-  final String imageURL;
-  final String jobText;
-  final String comText;
+  final JobModel job;
 
-  justPoste({this.imageURL, this.jobText, this.comText});
+  justPoste(this.job);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +24,7 @@ class justPoste extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(
-              imageURL,
+              job.companyLogo,
               width: 44,
               height: 45,
             ),
@@ -34,8 +33,8 @@ class justPoste extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(jobText, style: jobStyle),
-                  Text(comText, style: jobStyle2),
+                  Text(job.name, style: jobStyle),
+                  Text(job.companyName, style: jobStyle2),
                   SizedBox(
                     height: 18,
                   ),
