@@ -5,3 +5,9 @@ A project based learning course from BuildWith Angga
 
 ## Figma Design
 https://www.figma.com/file/JEC5Btybyf14lsdquejW8n/Future-Job?node-id=174%3A134
+
+## API
+* Register: POST https://bwa-jobs.herokuapp.com/register
+* Login: POST https://bwa-jobs.herokuapp.com/login
+* Jobs: GET https://bwa-jobs.herokuapp.com/jobs 
+* Category: GET https://bwa-jobs.herokuapp.com/categories
