@@ -86,13 +86,8 @@ class detailePage extends StatelessWidget {
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
                   return Column(
-                      children: snapshot.data
-                          .map((job) => justPoste(
-                                imageURL: job.companyLogo,
-                                jobText: job.name,
-                                comText: job.companyName,
-                              ))
-                          .toList());
+                      children:
+                          snapshot.data.map((job) => justPoste(job)).toList());
                 }
                 return Center(
                   child: CircularProgressIndicator(),
@@ -129,13 +124,8 @@ class detailePage extends StatelessWidget {
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
                   return Column(
-                      children: snapshot.data
-                          .map((job) => justPoste(
-                                imageURL: job.companyLogo,
-                                jobText: job.name,
-                                comText: job.companyName,
-                              ))
-                          .toList());
+                      children:
+                          snapshot.data.map((job) => justPoste(job)).toList());
                 }
                 return Center(
                   child: CircularProgressIndicator(),
