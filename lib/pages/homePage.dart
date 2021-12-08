@@ -142,21 +142,7 @@ class homePage extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 );
               },
-            ), // justPoste(
-            //   imageURL: 'assets/icon_google.png',
-            //   jobText: 'Front-End Developer',
-            //   comText: 'Google',
-            // ),
-            // justPoste(
-            //   imageURL: 'assets/icon_instagram.png',
-            //   jobText: 'UI Designer',
-            //   comText: 'Instagram',
-            // ),
-            // justPoste(
-            //   imageURL: 'assets/icon_facebook.png',
-            //   jobText: 'Data Scientist',
-            //   comText: 'Facebook',
-            // ),
+            ), 
           ],
         ),
       );
