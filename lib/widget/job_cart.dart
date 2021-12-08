@@ -1,13 +1,13 @@
-import 'package:find_job/pages/detailed_page.dart';
+import 'package:find_job/model/category_model.dart';
+import 'package:find_job/pages/cate_page.dart';
 import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class jobCart extends StatelessWidget {
-  final String name;
-  final String imageUrl;
+  final CateModel category;
 
-  jobCart({this.imageUrl, this.name});
+  jobCart({this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +16,7 @@ class jobCart extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => detailePage(
-              name: name,
-              imageUrl: imageUrl,
-            ),
+            builder: (context) => detailePage(category: category),
           ),
         );
       },
@@ -31,14 +28,14 @@ class jobCart extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
-              imageUrl,
+              category.imageUrl,
             ),
           ),
         ),
         child: Align(
           alignment: Alignment.bottomLeft,
           child: Text(
-            name,
+            category.name,
             style: whiteTextStyle.copyWith(
               fontSize: 18,
               fontWeight: medium,
