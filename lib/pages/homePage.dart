@@ -130,9 +130,7 @@ class homePage extends StatelessWidget {
                   return Column(
                       children: snapshot.data
                           .map((job) => justPoste(
-                                imageURL: job.companyLogo,
-                                jobText: job.name,
-                                comText: job.companyName,
+                                job
                               ))
                           .toList());
                 }
