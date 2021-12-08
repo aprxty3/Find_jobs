@@ -4,129 +4,145 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class detailePage extends StatelessWidget {
+  final String name;
   final String imageUrl;
-  final String jobText;
 
-  detailePage({this.imageUrl, this.jobText});
+  detailePage({this.imageUrl, this.name});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
-                    child: Container(
-                      height: 270,
-                      width: double.infinity,
-                      child: Image.asset(
-                        imageUrl,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 180, left: 24),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          jobText,
-                          style: detailJob,
-                        ),
-                        Text(
-                          '12,309 available',
-                          style: detailJob2,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 24.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Big Companies',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: Color(0xff272C2F),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      SizedBox(height: 24),
-                      justPoste(
-                        imageURL: 'assets/icon_google.png',
-                        jobText: 'Front-End Developer',
-                        comText: 'Google',
-                      ),
-                      justPoste(
-                        imageURL: 'assets/icon_facebook.png',
-                        jobText: 'Cloud Engineer',
-                        comText: 'Facebook',
-                      ),
-                      justPoste(
-                        imageURL: 'assets/icon_instagram.png',
-                        jobText: 'Data Scientist',
-                        comText: 'Instagram',
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 24.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'New StartUp',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: Color(0xff272C2F),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      SizedBox(height: 24),
-                      justPoste(
-                        imageURL: 'assets/startup1.png',
-                        jobText: 'Back-End Developer',
-                        comText: 'Climb',
-                      ),
-                      justPoste(
-                        imageURL: 'assets/startup2.png',
-                        jobText: 'Site Realibility Engineer',
-                        comText: 'Rocket',
-                      ),
-                      justPoste(
-                        imageURL: 'assets/startup3.png',
-                        jobText: 'Machine Learning',
-                        comText: 'Rainbow',
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+    Widget header() {
+      return Container(
+        height: 270,
+        width: double.infinity,
+        padding: EdgeInsets.only(
+          left: defaultMargin,
+          bottom: 30,
+        ),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(
+              imageUrl,
+            ),
           ),
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(16),
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              name,
+              style: whiteTextStyle.copyWith(
+                fontSize: 24,
+                fontWeight: semiBold,
+              ),
+            ),
+            SizedBox(
+              height: 2,
+            ),
+            Text(
+              '12,309 available',
+              style: whiteTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget companies() {
+      return Container(
+        width: double.infinity,
+        margin: EdgeInsets.only(
+          top: 30,
+          left: defaultMargin,
+          right: defaultMargin,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Big Companies',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            justPoste(
+              imageURL: 'assets/icon_google.png',
+              jobText: 'Front-End Developer',
+              comText: 'Google',
+            ),
+            justPoste(
+              imageURL: 'assets/icon_instagram.png',
+              jobText: 'UI Designer',
+              comText: 'Instagram',
+            ),
+            justPoste(
+              imageURL: 'assets/icon_facebook.png',
+              jobText: 'Data Scientist',
+              comText: 'Facebook',
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget newStartups() {
+      return Container(
+        width: double.infinity,
+        margin: EdgeInsets.only(
+          top: 20,
+          left: defaultMargin,
+          right: defaultMargin,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'New Startups',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            justPoste(
+              imageURL: 'assets/icon_google.png',
+              jobText: 'Front-End Developer',
+              comText: 'Google',
+            ),
+            justPoste(
+              imageURL: 'assets/icon_instagram.png',
+              jobText: 'UI Designer',
+              comText: 'Instagram',
+            ),
+            justPoste(
+              imageURL: 'assets/icon_facebook.png',
+              jobText: 'Data Scientist',
+              comText: 'Facebook',
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            header(),
+            companies(),
+            newStartups(),
+          ],
         ),
       ),
     );
