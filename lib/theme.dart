@@ -6,13 +6,13 @@ const double defaultMargin = 24.0;
 
 // Note: Colors
 
-Color primaryColor = Color(0xff4141A4);
-Color blackColor = Color(0xff272C2F);
-Color whiteColor = Color(0xffFFFFFF);
-Color redColor = Color(0xffFD4F56);
-Color greyColor = Color(0xffB3B5C4);
+Color primaryColor = const Color(0xff4141A4);
+Color blackColor = const Color(0xff272C2F);
+Color whiteColor = const Color(0xffFFFFFF);
+Color redColor = const Color(0xffFD4F56);
+Color greyColor = const Color(0xffB3B5C4);
 Color transparentColor = Colors.transparent;
-Color inputFieldColor = Color(0xffF1F0F5);
+Color inputFieldColor = const Color(0xffF1F0F5);
 
 // Note: Text Styles
 TextStyle purpleTextStyle = GoogleFonts.poppins(
@@ -43,7 +43,7 @@ FontWeight bold = FontWeight.bold;
 
 //Sign In Text Style
 TextStyle tittleStyle = GoogleFonts.poppins(
-  color: Color(0xffB3B5C4),
+  color: const Color(0xffB3B5C4),
   fontSize: 16,
   fontWeight: FontWeight.w400,
 );
@@ -61,7 +61,7 @@ TextStyle buttonStyle = GoogleFonts.poppins(
 );
 
 TextStyle button2Style = GoogleFonts.poppins(
-  color: Color(0xffB3B5C4),
+  color: const Color(0xffB3B5C4),
   fontSize: 14,
   fontWeight: FontWeight.w300,
 );
@@ -71,7 +71,7 @@ TextStyle button2Style = GoogleFonts.poppins(
 TextStyle jobStyle = GoogleFonts.poppins(
   fontSize: 16,
   fontWeight: FontWeight.w500,
-  color: Color(
+  color: const Color(
     0xff272C2F,
   ),
 );
@@ -79,7 +79,7 @@ TextStyle jobStyle = GoogleFonts.poppins(
 TextStyle jobStyle2 = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: FontWeight.w400,
-  color: Color(0xffB3B5C4),
+  color: const Color(0xffB3B5C4),
 );
 
 //DetailJob PAGE
@@ -101,23 +101,23 @@ TextStyle detailJob2 = GoogleFonts.poppins(
 TextStyle applyTheme1 = GoogleFonts.poppins(
   fontSize: 20,
   fontWeight: FontWeight.w600,
-  color: Color(0xff272C2F),
+  color: const Color(0xff272C2F),
 );
 
 TextStyle applyTheme2 = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: FontWeight.w400,
-  color: Color(0xffB3B5C4),
+  color: const Color(0xffB3B5C4),
 );
 
 TextStyle applyTheme3 = GoogleFonts.poppins(
-  color: Color(0xff272C2F),
+  color: const Color(0xff272C2F),
   fontSize: 14,
   fontWeight: FontWeight.w500,
 );
 
 TextStyle applyTheme4 = GoogleFonts.poppins(
-  color: Color(0xff272C2F),
+  color: const Color(0xff272C2F),
   fontSize: 14,
   fontWeight: FontWeight.w300,
 );

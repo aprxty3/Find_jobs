@@ -1,7 +1,6 @@
 import 'package:find_job/model/job_model.dart';
 import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class applyPage extends StatefulWidget {
   final JobModel job;
@@ -18,7 +17,7 @@ class _applyPageState extends State<applyPage> {
   Widget build(BuildContext context) {
     Widget header() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 80,
         ),
         child: Column(
@@ -26,14 +25,14 @@ class _applyPageState extends State<applyPage> {
             isApplied
                 ? Container(
                     width: double.infinity,
-                    margin: EdgeInsets.only(bottom: 30),
-                    padding: EdgeInsets.symmetric(
+                    margin: const EdgeInsets.only(bottom: 30),
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 24,
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(48),
-                      color: Color(0xffECEDF1),
+                      color: const Color(0xffECEDF1),
                     ),
                     child: Text(
                       'You have applied this job and the\nrecruiter will contact you',
@@ -46,7 +45,7 @@ class _applyPageState extends State<applyPage> {
               widget.job.companyLogo,
               width: 60,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -56,7 +55,7 @@ class _applyPageState extends State<applyPage> {
                 fontWeight: semiBold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
             Text(
@@ -70,7 +69,7 @@ class _applyPageState extends State<applyPage> {
 
     Widget detailItem(String text) {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 16,
         ),
         child: Row(
@@ -81,7 +80,7 @@ class _applyPageState extends State<applyPage> {
               color: primaryColor,
               size: 12,
             ),
-            SizedBox(
+            const SizedBox(
               width: 8,
             ),
             Expanded(
@@ -99,7 +98,7 @@ class _applyPageState extends State<applyPage> {
 
     Widget aboutJob() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 30,
         ),
         child: Column(
@@ -125,7 +124,7 @@ class _applyPageState extends State<applyPage> {
 
     Widget qualifications() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 30,
         ),
         child: Column(
@@ -151,7 +150,7 @@ class _applyPageState extends State<applyPage> {
 
     Widget responsibilities() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 30,
         ),
         child: Column(
@@ -180,7 +179,7 @@ class _applyPageState extends State<applyPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 50),
+            margin: const EdgeInsets.only(top: 50),
             height: 45,
             width: 200,
             child: TextButton(
@@ -212,7 +211,7 @@ class _applyPageState extends State<applyPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 50),
+            margin: const EdgeInsets.only(top: 50),
             height: 45,
             width: 200,
             child: TextButton(
@@ -241,7 +240,7 @@ class _applyPageState extends State<applyPage> {
 
     Widget messageButton() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 20,
           bottom: 35,
         ),
@@ -260,7 +259,7 @@ class _applyPageState extends State<applyPage> {
     return Scaffold(
       body: Center(
         child: ListView(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: defaultMargin,
           ),
           children: [

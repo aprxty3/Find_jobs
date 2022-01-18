@@ -1,13 +1,9 @@
 import 'package:find_job/model/user_model.dart';
-import 'package:find_job/pages/sign_up.dart';
 import 'package:find_job/provider/auth_provider.dart';
 import 'package:find_job/provider/user_provider.dart';
 import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
-
-import 'homePage.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -36,7 +32,7 @@ class _SignInState extends State<SignIn> {
 
     Widget header() {
       return Container(
-        margin: EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -46,7 +42,7 @@ class _SignInState extends State<SignIn> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
             Text(
@@ -63,7 +59,7 @@ class _SignInState extends State<SignIn> {
 
     Widget illustration() {
       return Container(
-        margin: EdgeInsets.only(top: 40),
+        margin: const EdgeInsets.only(top: 40),
         child: Center(
           child: Image.asset(
             'assets/image_sign_in.png',
@@ -75,7 +71,7 @@ class _SignInState extends State<SignIn> {
 
     Widget inputEmail() {
       return Container(
-        margin: EdgeInsets.only(top: 40),
+        margin: const EdgeInsets.only(top: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -85,13 +81,13 @@ class _SignInState extends State<SignIn> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Container(
               width: double.infinity,
               height: 45,
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 20,
               ),
               decoration: BoxDecoration(
@@ -103,7 +99,7 @@ class _SignInState extends State<SignIn> {
                   controller: emailController,
                   cursorColor: primaryColor,
                   style: purpleTextStyle.copyWith(),
-                  decoration: InputDecoration.collapsed(
+                  decoration: const InputDecoration.collapsed(
                     hintText: '',
                   ),
                 ),
@@ -116,7 +112,7 @@ class _SignInState extends State<SignIn> {
 
     Widget inputPassword() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 20,
         ),
         child: Column(
@@ -128,13 +124,13 @@ class _SignInState extends State<SignIn> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Container(
               width: double.infinity,
               height: 45,
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 20,
               ),
               decoration: BoxDecoration(
@@ -147,7 +143,7 @@ class _SignInState extends State<SignIn> {
                   cursorColor: primaryColor,
                   obscureText: true,
                   style: purpleTextStyle.copyWith(),
-                  decoration: InputDecoration.collapsed(
+                  decoration: const InputDecoration.collapsed(
                     hintText: '',
                   ),
                 ),
@@ -162,9 +158,9 @@ class _SignInState extends State<SignIn> {
       return Container(
         height: 45,
         width: double.infinity,
-        margin: EdgeInsets.only(top: 40),
+        margin: const EdgeInsets.only(top: 40),
         child: isLoading
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(),
               )
             : TextButton(
@@ -213,7 +209,7 @@ class _SignInState extends State<SignIn> {
 
     Widget signUpButton() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 20,
           bottom: 20,
         ),
@@ -239,7 +235,7 @@ class _SignInState extends State<SignIn> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: defaultMargin,
             ),
             child: Column(

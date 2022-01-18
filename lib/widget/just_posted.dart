@@ -10,7 +10,7 @@ class justPoste extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 10.0),
+      padding: const EdgeInsets.only(left: 10.0),
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -28,17 +28,17 @@ class justPoste extends StatelessWidget {
               width: 44,
               height: 45,
             ),
-            SizedBox(width: 27),
+            const SizedBox(width: 27),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(job.name, style: jobStyle),
                   Text(job.companyName, style: jobStyle2),
-                  SizedBox(
+                  const SizedBox(
                     height: 18,
                   ),
-                  Divider(
+                  const Divider(
                     color: Color(0xffECEDF1),
                     thickness: 1,
                   )

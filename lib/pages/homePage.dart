@@ -6,9 +6,7 @@ import 'package:find_job/provider/user_provider.dart';
 import 'package:find_job/theme.dart';
 import 'package:find_job/widget/job_cart.dart';
 import 'package:find_job/widget/just_posted.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class homePage extends StatelessWidget {
@@ -21,8 +19,9 @@ class homePage extends StatelessWidget {
     Widget header() {
       return SafeArea(
         child: Container(
+          margin: const EdgeInsets.all(0),
           child: Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               top: 30,
               right: 24,
               left: 24,
@@ -42,7 +41,7 @@ class homePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.asset(
                   'assets/image_profile.png',
                   width: 58,
@@ -59,11 +58,11 @@ class homePage extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: defaultMargin,
             ),
             child: Text(
@@ -73,10 +72,11 @@ class homePage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Container(
+            margin: const EdgeInsets.all(0),
             height: 200,
             child: FutureBuilder<List<CateModel>>(
               future: cateProvider.getCate(),
@@ -88,13 +88,14 @@ class homePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: snapshot.data
                         .map(
-                          (category) => jobCart(category: category,
+                          (category) => jobCart(
+                            category: category,
                           ),
                         )
                         .toList(),
                   );
                 }
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               },
@@ -106,7 +107,7 @@ class homePage extends StatelessWidget {
 
     Widget justPosted() {
       return Container(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           left: defaultMargin,
           right: defaultMargin,
           top: 30,
@@ -120,7 +121,7 @@ class homePage extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             FutureBuilder<List<JobModel>>(
@@ -128,17 +129,14 @@ class homePage extends StatelessWidget {
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
                   return Column(
-                      children: snapshot.data
-                          .map((job) => justPoste(
-                                job
-                              ))
-                          .toList());
+                      children:
+                          snapshot.data.map((job) => justPoste(job)).toList());
                 }
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               },
-            ), 
+            ),
           ],
         ),
       );
@@ -157,7 +155,7 @@ class homePage extends StatelessWidget {
     Widget bottomNavBar() {
       return BottomNavigationBar(
         elevation: 0,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage('assets/navbar1.png'),

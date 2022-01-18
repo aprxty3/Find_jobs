@@ -1,11 +1,9 @@
 import 'package:find_job/model/category_model.dart';
-import 'package:find_job/model/category_model.dart';
 import 'package:find_job/model/job_model.dart';
 import 'package:find_job/provider/job_provider.dart';
 import 'package:find_job/theme.dart';
 import 'package:find_job/widget/just_posted.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class detailePage extends StatelessWidget {
@@ -21,7 +19,7 @@ class detailePage extends StatelessWidget {
       return Container(
         height: 270,
         width: double.infinity,
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           left: defaultMargin,
           bottom: 30,
         ),
@@ -32,7 +30,7 @@ class detailePage extends StatelessWidget {
               category.imageUrl,
             ),
           ),
-          borderRadius: BorderRadius.vertical(
+          borderRadius: const BorderRadius.vertical(
             bottom: Radius.circular(16),
           ),
         ),
@@ -47,7 +45,7 @@ class detailePage extends StatelessWidget {
                 fontWeight: semiBold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
             Text(
@@ -64,7 +62,7 @@ class detailePage extends StatelessWidget {
     Widget companies() {
       return Container(
         width: double.infinity,
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 30,
           left: defaultMargin,
           right: defaultMargin,
@@ -78,7 +76,7 @@ class detailePage extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             FutureBuilder<List<JobModel>>(
@@ -89,7 +87,7 @@ class detailePage extends StatelessWidget {
                       children:
                           snapshot.data.map((job) => justPoste(job)).toList());
                 }
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               },
@@ -102,7 +100,7 @@ class detailePage extends StatelessWidget {
     Widget newStartups() {
       return Container(
         width: double.infinity,
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 20,
           left: defaultMargin,
           right: defaultMargin,
@@ -116,7 +114,7 @@ class detailePage extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             FutureBuilder<List<JobModel>>(
@@ -127,7 +125,7 @@ class detailePage extends StatelessWidget {
                       children:
                           snapshot.data.map((job) => justPoste(job)).toList());
                 }
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               },

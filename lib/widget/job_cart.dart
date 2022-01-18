@@ -2,7 +2,6 @@ import 'package:find_job/model/category_model.dart';
 import 'package:find_job/pages/cate_page.dart';
 import 'package:find_job/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class jobCart extends StatelessWidget {
   final CateModel category;
@@ -23,8 +22,8 @@ class jobCart extends StatelessWidget {
       child: Container(
         width: 150,
         height: 200,
-        margin: EdgeInsets.only(right: defaultMargin),
-        padding: EdgeInsets.all(16),
+        margin: const EdgeInsets.only(right: defaultMargin),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(

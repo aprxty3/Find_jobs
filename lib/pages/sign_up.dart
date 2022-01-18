@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
 
-
-
 class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -38,7 +36,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     Widget header() {
       return Container(
-        margin: EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -48,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
             Text(
@@ -68,8 +66,8 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Container(
           width: 120,
           height: 120,
-          margin: EdgeInsets.only(top: 50),
-          padding: EdgeInsets.all(8),
+          margin: const EdgeInsets.only(top: 50),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
@@ -85,7 +83,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     Widget inputName() {
       return Container(
-        margin: EdgeInsets.only(top: 50),
+        margin: const EdgeInsets.only(top: 50),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -95,7 +93,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             TextFormField(
@@ -105,8 +103,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 setState(() {});
               },
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(left: 28, bottom: 20, top: 20),
-                fillColor: Color(0xffF1F0F5),
+                contentPadding:
+                    const EdgeInsets.only(left: 28, bottom: 20, top: 20),
+                fillColor: const Color(0xffF1F0F5),
                 filled: true,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -132,7 +131,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     Widget inputEmail() {
       return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -142,7 +141,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             TextFormField(
@@ -152,8 +151,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 setState(() {});
               },
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(left: 28, bottom: 20, top: 20),
-                fillColor: Color(0xffF1F0F5),
+                contentPadding:
+                    const EdgeInsets.only(left: 28, bottom: 20, top: 20),
+                fillColor: const Color(0xffF1F0F5),
                 filled: true,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -183,7 +183,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     Widget inputPassword() {
       return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -193,7 +193,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             TextFormField(
@@ -204,8 +204,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 setState(() {});
               },
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(left: 28, bottom: 20, top: 20),
-                fillColor: Color(0xffF1F0F5),
+                contentPadding:
+                    const EdgeInsets.only(left: 28, bottom: 20, top: 20),
+                fillColor: const Color(0xffF1F0F5),
                 filled: true,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -231,7 +232,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     Widget inputGoal() {
       return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -241,7 +242,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             TextFormField(
@@ -251,8 +252,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 setState(() {});
               },
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(left: 28, bottom: 20, top: 20),
-                fillColor: Color(0xffF1F0F5),
+                contentPadding:
+                    const EdgeInsets.only(left: 28, bottom: 20, top: 20),
+                fillColor: const Color(0xffF1F0F5),
                 filled: true,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -278,11 +280,11 @@ class _SignUpPageState extends State<SignUpPage> {
 
     Widget signUpButton() {
       return Container(
-        margin: EdgeInsets.only(top: 40),
+        margin: const EdgeInsets.only(top: 40),
         height: 45,
         width: double.infinity,
         child: isLoading
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(),
               )
             : TextButton(
@@ -335,7 +337,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     Widget signInButton() {
       return Container(
-        margin: EdgeInsets.only(top: 20, bottom: 20),
+        margin: const EdgeInsets.only(top: 20, bottom: 20),
         child: Center(
           child: TextButton(
             onPressed: () {
@@ -356,7 +358,7 @@ class _SignUpPageState extends State<SignUpPage> {
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: defaultMargin,
           ),
           child: ListView(
